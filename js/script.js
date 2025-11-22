@@ -4,8 +4,8 @@ const RADIO_NAME = 'FM Olive';
 const URL_STREAMING = 'https://stm.livecastradio.com:7252/';
 
 //API URL /
-const API_URL = 'https://twj.es/free/?url='+URL_STREAMING;
-const FALLBACK_API_URL = 'https://twj.es/metadata/?url=' + URL_STREAMING;
+const API_URL = 'https://cors-anywhere.herokuapp.com/' + URL_STREAMING;
+const FALLBACK_API_URL = 'https://cors-anywhere.herokuapp.com/' + URL_STREAMING;
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
@@ -526,6 +526,7 @@ function intToDecimal(vol) {
 function decimalToInt(vol) {
     return vol * 100;
 } 
+
 
 
 
