@@ -4,7 +4,7 @@ const RADIO_NAME = 'FM Olive';
 const URL_STREAMING = 'https://stm.livecastradio.com:7252/;';
 
 // ⚠️ CORRECCIÓN DE URL CLAVE: Definir la URL de metadatos (el proxy necesita esta ruta)
-const META_URL_DIRECTA = 'https://stm.livecastradio.com:7252/status-json.xsl'; 
+const META_URL_DIRECTA = 'https://stm.livecastradio.com:7252/'; 
 
 // API URL /
 const API_URL = 'https://cors-anywhere.herokuapp.com/' + META_URL_DIRECTA;
@@ -548,6 +548,7 @@ setTimeout(() => {
     // 2. Inicia el intervalo de actualización (cada 10 segundos)
     setInterval(getStreamingData, 10000); 
 }, 200); // 200ms de retraso.
+
 
 
 
