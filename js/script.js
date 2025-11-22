@@ -3,9 +3,16 @@ const RADIO_NAME = 'FM Olive';
 // Change Stream URL Here, Supports, ICECAST, ZENO, SHOUTCAST, RADIOJAR and any other stream service.
 const URL_STREAMING = 'https://stm.livecastradio.com:7252/;';
 
+// ⚠️ CORRECCIÓN DE URL CLAVE: Definir la URL de metadatos (el proxy necesita esta ruta)
+const META_URL_DIRECTA = 'https://stm.livecastradio.com:7252/status-json.xsl'; 
+
+// API URL /
+const API_URL = 'https://cors-anywhere.herokuapp.com/' + META_URL_DIRECTA;
+const FALLBACK_API_URL = 'https://cors-anywhere.herokuapp.com/' + META_URL_DIRECTA;
+
 //API URL /
-const API_URL = 'https://cors-anywhere.herokuapp.com/' + URL_STREAMING;
-const FALLBACK_API_URL = 'https://cors-anywhere.herokuapp.com/' + URL_STREAMING;
+//const API_URL = 'https://cors-anywhere.herokuapp.com/' + URL_STREAMING;
+//const FALLBACK_API_URL = 'https://cors-anywhere.herokuapp.com/' + URL_STREAMING;
 
 // Visit https://api.vagalume.com.br/docs/ to get your API key
 const API_KEY = "18fe07917957c289983464588aabddfb";
@@ -30,10 +37,10 @@ window.addEventListener('load', () => {
 
     // AÑADIR: Inicia la metadata con un pequeño retraso.
     // Esto permite que el evento 'load' termine y la página se muestre.
-    setTimeout(getStreamingData, 50); // 50 milisegundos de retraso.
+    //setTimeout(getStreamingData, 50); // 50 milisegundos de retraso.
 
     // Define o intervalo para atualizar os dados de streaming a cada 10 segundos
-    const streamingInterval = setInterval(getStreamingData, 10000);
+    //const streamingInterval = setInterval(getStreamingData, 10000);
 
     // Ajusta a altura da capa do álbum para ser igual à sua largura
     const coverArt = document.querySelector('.cover-album'); // Use querySelector para selecionar o elemento
@@ -531,6 +538,16 @@ function decimalToInt(vol) {
     return vol * 100;
 } 
 
+// Este bloque inicializa los metadatos de forma asíncrona después de que la página
+// haya terminado de cargarse, garantizando que no haya bloqueo.
+
+setTimeout(() => {
+    // 1. Llama a getStreamingData inmediatamente
+    getStreamingData();
+    
+    // 2. Inicia el intervalo de actualización (cada 10 segundos)
+    setInterval(getStreamingData, 10000); 
+}, 200); // 200ms de retraso.
 
 
 
