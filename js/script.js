@@ -23,13 +23,13 @@ window.addEventListener('load', () => {
     page.setVolume();
 
     const player = new Player();
-    player.play();
+    //player.play();//
 
     // Chama a função getStreamingData imediatamente quando a página carrega
     getStreamingData();
 
     // Define o intervalo para atualizar os dados de streaming a cada 10 segundos
-    const streamingInterval = setInterval(getStreamingData, 100);
+    const streamingInterval = setInterval(getStreamingData, 10000);
 
     // Ajusta a altura da capa do álbum para ser igual à sua largura
     const coverArt = document.querySelector('.cover-album'); // Use querySelector para selecionar o elemento
@@ -526,6 +526,7 @@ function intToDecimal(vol) {
 function decimalToInt(vol) {
     return vol * 100;
 } 
+
 
 
 
