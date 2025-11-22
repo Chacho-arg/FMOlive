@@ -26,7 +26,11 @@ window.addEventListener('load', () => {
     //player.play();//
 
     // Chama a função getStreamingData imediatamente quando a página carrega
-    getStreamingData();
+    //getStreamingData();//
+
+    // AÑADIR: Inicia la metadata con un pequeño retraso.
+    // Esto permite que el evento 'load' termine y la página se muestre.
+    setTimeout(getStreamingData, 50); // 50 milisegundos de retraso.
 
     // Define o intervalo para atualizar os dados de streaming a cada 10 segundos
     const streamingInterval = setInterval(getStreamingData, 10000);
@@ -526,6 +530,7 @@ function intToDecimal(vol) {
 function decimalToInt(vol) {
     return vol * 100;
 } 
+
 
 
 
