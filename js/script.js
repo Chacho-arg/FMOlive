@@ -1,7 +1,7 @@
 const RADIO_NAME = 'FM Olive';
 
 // Change Stream URL Here, Supports, ICECAST, ZENO, SHOUTCAST, RADIOJAR and any other stream service.
-const URL_STREAMING = 'https://stm.livecastradio.com:7252/;';
+const URL_STREAMING = 'https://stm.livecastradio.com:7252/';
 
 //API URL /
 const API_URL = 'https://twj.es/free/?url='+ URL_STREAMING;
@@ -526,6 +526,7 @@ function intToDecimal(vol) {
 function decimalToInt(vol) {
     return vol * 100;
 } 
+
 
 
 
